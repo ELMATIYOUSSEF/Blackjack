@@ -5,17 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6993bc6d-c732-49c0-a39c-30fd5ee9d192" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Cartes/carte.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Console/CardDesigner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Console/forms.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Enums/colore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/Start_Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Cartes/DisperseCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Service/GameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Cartes/carte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Cartes/Carte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Console/CardDesigner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Console/CardDesigner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Console/forms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Console/forms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Start_Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Start_Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +34,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2VenXueryuzZ23v7LskUl04SMZX" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -46,6 +51,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -89,6 +95,20 @@
     </option>
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Cartes/Carte.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Cartes/Carte.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="value" />

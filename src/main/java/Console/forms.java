@@ -9,6 +9,7 @@ public class forms {
             case 2: suitSymbol = "♦"; break;
             case 3: suitSymbol = "♥"; break;
             case 4: suitSymbol = "♠"; break;
+            case 5: suitSymbol = "*"; break;
         }
         return suitSymbol ;
     }
@@ -28,6 +29,7 @@ public class forms {
             case 11: suitSymbol = " J"; break;
             case 12: suitSymbol = " Q"; break;
             case 13: suitSymbol = " K"; break;
+            case 14: suitSymbol = " *"; break;
         }
         return suitSymbol ;
     }

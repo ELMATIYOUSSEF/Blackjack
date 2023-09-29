@@ -1,14 +1,18 @@
 package Game;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import Cartes.Carte;
+import Cartes.DisperseCard;
+
+import java.util.*;
 import java.util.function.Supplier;
 
-import static java.lang.Thread.*;
+import static Cartes.Carte.*;
+import static Console.CardDesigner.CardDesignList;
 
 public class Start_Game {
 
-    public static long wallet ;
+    public static long wallet = 0;
+    public static long RoundAmount=0;
     private static final  Scanner scanner = new Scanner(System.in);
 
     public static  int Rules(){
@@ -76,13 +80,13 @@ public class Start_Game {
 
         switch (choice) {
             case 1:
-                wallet = 1000;
+                wallet += 1000;
                 break;
             case 2:
-                wallet =5000;
+                wallet +=5000;
                 break;
             case 3:
-                wallet =10000;
+                wallet +=10000;
                 break;
             case 4:
                 getautherAmount();
@@ -94,13 +98,6 @@ public class Start_Game {
                 System.out.println("\n Choix invalide. Veuillez réessayer.");
         }
 
-    }
-    public static void startGame(){
-        if (Rules() ==1) {
-            requestMoney();
-        } else {
-            System.exit(0);
-        }
     }
 
     public static void getautherAmount(){
@@ -127,4 +124,295 @@ public class Start_Game {
 
 
     }
+    public static void request_Jetton(){
+        int choice =0 ;
+        do {
+            System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t Wallet => "+ wallet +",00 $");
+            System.out.println("Your budge for this round ?");
+            System.out.println("1 => 50$");
+            System.out.println("2 => 100$");
+            System.out.println("3 => 1000$");
+            System.out.println("4 => Another amount");
+            System.out.println("5 => Quite Game ");
+            while (!scanner.hasNextInt()) {
+                scanner.nextLine();
+                System.out.println("\n Choix invalide. Veuillez réessayer.");
+                System.out.print("\nVotre choix : ");
+            }
+            choice = scanner.nextInt();
+        }while (choice<0 || choice>5);
+
+
+        switch (choice) {
+            case 1:
+                if(!checkAmount(50)){
+                    requestMoney();
+                    request_Jetton();
+                }
+                break;
+            case 2:
+                if(!checkAmount(100)){
+                    requestMoney();
+                    request_Jetton();
+                }
+                break;
+            case 3:
+                if(!checkAmount(1000)){
+                    requestMoney();
+                    request_Jetton();
+                }
+                break;
+            case 4:
+                getAmount();
+                break;
+            case 5:
+                System.exit(0);
+                break;
+            default:
+                System.out.println("\n Choix invalide. Veuillez réessayer.");
+        }
+    }
+
+    public static boolean checkAmount(int amount){
+        RoundAmount = amount ;
+        boolean check = false;
+        if (amount <= wallet){
+            wallet -= amount ;
+            check = true ;
+        }
+        else System.out.println("Votre solde est insuffisant !!");
+        return check ;
+    }
+    public static void getAmount(){
+        Boolean check =false;
+        do{
+            System.out.println("NB => The Lowest Amount is 50 $ !!");
+            System.out.println("Enter the amount : ");
+            if (scanner.hasNextInt()) {
+             check = checkAmount(scanner.nextInt());
+             if(!check){
+                 RoundAmount = scanner.nextInt() ;
+             }
+            }else System.out.println("Entre un No character !!");
+        }while (check== false);
+    }
+    
+  public static void StartDisgne(){
+      System.out.println("\t\t\t\t\t         :::        ");
+      System.out.println("\t\t\t\t\t      :+: :+:      ");
+      System.out.println("\t\t\t\t\t       +:+        ");
+      System.out.println("\t\t\t\t\t      +#+         ");
+      System.out.println("\t\t\t\t\t     +#+          ");
+      System.out.println("\t\t\t\t\t    #+#           ");
+      System.out.println("\t\t\t\t\t   #######        ");
+      System.out.println("                                                   \n");
+      _Second_Wait(1);
+      System.out.println("                   ");
+      System.out.println("\t\t\t\t\t        ::::::::   ");
+      System.out.println("\t\t\t\t\t      :+:    :+:   ");
+      System.out.println("\t\t\t\t\t           +:+     ");
+      System.out.println("\t\t\t\t\t      +#+         ");
+      System.out.println("\t\t\t\t\t    +#+           ");
+      System.out.println("\t\t\t\t\t  #+#             ");
+      System.out.println("\t\t\t\t\t##########        ");
+      System.out.println("                   ");
+      _Second_Wait(1);
+      System.out.println("                   ");
+      System.out.println("\t\t\t\t\t      ::::::::     ");
+      System.out.println("\t\t\t\t\t    :+:    :+:     ");
+      System.out.println("\t\t\t\t\t          +:+       ");
+      System.out.println("\t\t\t\t\t      +#++:        ");
+      System.out.println("\t\t\t\t\t        +#+         ");
+      System.out.println("\t\t\t\t\t#+#    #+#          ");
+      System.out.println("\t\t\t\t\t########            ");
+      System.out.println("                                               \n");
+      _Second_Wait(2);
+      System.out.println("      :::::::::       :::            :::     :::   ::: ");
+      System.out.println("     :+:    :+:      :+:          :+: :+:   :+:   :+:  ");
+      System.out.println("    +:+    +:+      +:+         +:+   +:+   +:+ +:+    ");
+      System.out.println("   +#++:++#+       +#+        +#++:++#++:   +#++:      ");
+      System.out.println("  +#+             +#+        +#+     +#+    +#+        ");
+      System.out.println(" #+#             #+#        #+#     #+#    #+#         ");
+      System.out.println("###             ########## ###     ###    ###          ");
+      System.out.println("                                               \n");
+      _Second_Wait(1);
+
+  }
+   public static DisperseCard disperse ;
+   public static ArrayList<ArrayList<Integer>> Player = new ArrayList<>();
+   public static ArrayList<ArrayList<Integer>>Dealer = new ArrayList<>();
+   public static boolean Bool_NbmCarteRest =false ;
+    public static void requeststartGame(){
+        if (Rules() ==1) {
+            requestMoney();
+            StartDisgne();
+            request_Jetton();
+            start();
+        } else {
+            System.exit(0);
+        }
+    }
+    public static void start(){
+        disperse = disperseCard(gameCartes);
+        Player=disperse.PlayerCard ;
+        Dealer =disperse.DealerCard ;
+        Bool_NbmCarteRest  =disperse.checkNumberCarte ;
+
+      while(Bool_NbmCarteRest){
+            System.out.println(" Your carte : ");
+            CardDesignList(Player,false);
+            Map<String,Integer> map = CalculeTotal(Player);
+            int numbre = map.get("numbreTotal");
+            int numbreGreaterThan21 = map.get("numbreGreaterThan21");
+            System.out.println("Numbre Total Cartes : "+numbre);
+            System.out.println(" Dealer carte : ");
+            CardDesignList(Dealer,true);
+            if(numbreGreaterThan21 != 1){
+                HitOrStand() ;
+            }else{
+                YouLose();
+                CardDesignList(Player,false);
+                System.out.println(" Numbre Total  of Your Cartes : " + numbre);
+                System.out.println("+------------------------------------------+");
+                CardDesignList(Dealer,false);
+                request_Jetton();
+                start();
+            }
+
+        }
+
+    }
+
+    public static void HitOrStand(){
+        String choice ="" ;
+        do {
+            System.out.print("Do you want to hit or stand? (Type 'hit' or 'stand'): ");
+           choice = scanner.nextLine().toLowerCase();
+            if (!choice.equals("hit") && !choice.equals("stand")) {
+                System.out.println("Invalid choice. Please type 'hit' or 'stand'.");
+            }
+        }while (!choice.equals("hit") && !choice.equals("stand")) ;
+
+            if (choice.equals("hit")) {
+                if(gameCartes.size()>=1) {
+                    Hit(gameCartes, Player);
+                }
+                else {
+                    System.out.println("\t\t\t\t\t\t\t\t\t\t Wallet => "+ wallet  +",00 $");
+                    System.out.println("Play again \n 1 - Oui \n 2 - No \n");
+                    if(scanner.nextInt() == 1 ){
+                        ArrayList<ArrayList<Integer>> arrayLists = NewGame(BlackList, gameCartes, Player, Dealer);
+                        getBlackandGameList(arrayLists);
+                        start();
+                    }else {
+                        System.out.println( " By See You later your Wallet => " + wallet  +",00 $");
+                        _Second_Wait(2);
+                        System.exit(0);
+                    }
+                }
+            } else {
+                Stand();
+            }
+
+    }
+    public  static  void Hit(ArrayList<ArrayList<Integer>> cards , ArrayList<ArrayList<Integer>> Player){
+
+            Player.add(disperseTableCard(cards)) ;
+
+    }
+
+    public static void Stand(){
+
+        Map<String,Integer> map = CalculeTotal(Player);
+        int numbrePlayer = map.get("numbreTotal");
+        CardDesignList(Player,false);
+        System.out.println(" Numbre Total  of Your Cartes : " + numbrePlayer);
+        int numbreDealer ;
+
+       do{
+           Map<String,Integer> map2 = CalculeTotal(Dealer);
+           numbreDealer = map2.get("numbreTotal");
+           CardDesignList(Dealer,false);
+           System.out.println(" Numbre Total  of Dealer Cartes : " + numbreDealer);
+           _Second_Wait(3);
+           while (gameCartes.size()>0){
+               Hit(gameCartes,Dealer);
+           }
+           System.out.println("+---------------------------- Dealer ---------------------------+");
+       } while ((numbreDealer<17 && numbreDealer<numbrePlayer )&& CheckTableCard(gameCartes));
+       // if (!checktableCard(gameCartes)) => shuflle carte and restar game
+        howIswin(numbrePlayer,numbreDealer);
+        request_Jetton();
+        start();
+
+    }
+    public static Map<String , Integer> CalculeTotal(ArrayList<ArrayList<Integer>> List){
+        Map<String , Integer> map = new HashMap<>() ;
+        int countNumberOfA = 0 ;
+        int totalScore =0 ,Greaterthan21 = 0;
+        for (ArrayList<Integer> list: List) {
+            if(list.get(0) >10){
+                totalScore += 10;
+            } else if (list.get(0)==1 ) {
+                countNumberOfA++ ;
+            }
+            else {
+                totalScore += list.get(0);
+            }
+        }
+        while (countNumberOfA-- > 0){
+            if(totalScore <= 10)
+                totalScore += 11 ;
+            else totalScore += 1 ;
+        }
+        if(totalScore>21) Greaterthan21 =1 ;
+        map.put("numbreTotal" , totalScore);
+        map.put("numbreGreaterThan21" , Greaterthan21);
+        return map;
+    }
+
+    public static void YouLose(){
+
+        System.out.println("   :::   :::       ::::::::      :::    :::           :::        ::::::::       ::::::::       :::::::::: ");
+        System.out.println("  :+:   :+:      :+:    :+:     :+:    :+:           :+:       :+:    :+:     :+:    :+:      :+:         ");
+        System.out.println("  +:+ +:+       +:+    +:+     +:+    +:+           +:+       +:+    +:+     +:+             +:+          ");
+        System.out.println("  +#++:        +#+    +:+     +#+    +:+           +#+       +#+    +:+     +#++:++#++      +#++:++#      ");
+        System.out.println("  +#+         +#+    +#+     +#+    +#+           +#+       +#+    +#+            +#+      +#+            ");
+        System.out.println(" #+#         #+#    #+#     #+#    #+#           #+#       #+#    #+#     #+#    #+#      #+#             ");
+        System.out.println("###          ########       ########            ########## ########       ########       ##########       ");
+
+    }
+
+    public static void YouWin(){
+        System.out.println("   :::   :::       ::::::::      :::    :::         :::       :::       :::::::::::       ::::    ::: ");
+        System.out.println("  :+:   :+:      :+:    :+:     :+:    :+:         :+:       :+:           :+:           :+:+:   :+:  ");
+        System.out.println("  +:+ +:+       +:+    +:+     +:+    +:+         +:+       +:+           +:+           :+:+:+  +:+   ");
+        System.out.println("  +#++:        +#+    +:+     +#+    +:+         +#+  +:+  +#+           +#+           +#+ +:+ +#+    ");
+        System.out.println("  +#+         +#+    +#+     +#+    +#+         +#+ +#+#+ +#+           +#+           +#+  +#+#+#     ");
+        System.out.println(" #+#         #+#    #+#     #+#    #+#          #+#+# #+#+#            #+#           #+#   #+#+#      ");
+        System.out.println("###          ########       ########            ###   ###         ###########       ###    ####       ");
+    }
+    public static void Draw(){
+        System.out.println("  :::::::::       :::::::::           :::      :::       ::: ");
+        System.out.println(" :+:    :+:      :+:    :+:        :+: :+:    :+:       :+:  ");
+        System.out.println(" +:+    +:+      +:+    +:+       +:+   +:+   +:+       +:+   ");
+        System.out.println(" +#+    +:+      +#++:++#:       +#++:++#++:  +#+  +:+  +#+    ");
+        System.out.println(" +#+    +#+      +#+    +#+      +#+     +#+  +#+ +#+#+ +#+     ");
+        System.out.println(" #+#    #+#      #+#    #+#      #+#     #+#   #+#+# #+#+#       ");
+        System.out.println(" #########       ###    ###      ###     ###    ###   ###         ");
+    }
+
+   public static void howIswin(int NumPlayer , int NumDealer){
+        if((NumPlayer>NumDealer && NumPlayer<=21 ) ||  NumDealer>21 ){
+            wallet = wallet +  (RoundAmount*2) ;
+            YouWin();
+        } else if (NumDealer == NumPlayer) {
+            Draw();
+            wallet = wallet + RoundAmount ;
+        } else{
+            YouLose();
+        }
+   }
+
+
 }
