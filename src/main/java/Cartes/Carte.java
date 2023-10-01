@@ -132,7 +132,6 @@ public class Carte {
                 checkNumberCarte = true ;
             }
         }
-        else checkNumberCarte = false ;
 
         DisperseCard disperse = new DisperseCard(DealerCard ,PlayerCard , checkNumberCarte);
         return disperse ;
