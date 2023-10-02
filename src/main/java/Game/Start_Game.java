@@ -1,6 +1,5 @@
 package Game;
 
-import Cartes.Carte;
 import Cartes.DisperseCard;
 
 import java.util.*;
@@ -90,7 +89,7 @@ public class Start_Game {
                 wallet +=10000;
                 break;
             case 4:
-                getautherAmount();
+                getAutherAmount();
                 break;
             case 5:
                System.exit(0);
@@ -101,7 +100,7 @@ public class Start_Game {
 
     }
 
-    public static void getautherAmount(){
+    public static void getAutherAmount(){
         int check =0;
         do{
             System.out.println("NB => The Lowest Amount is 1000 $ !!");
@@ -245,7 +244,6 @@ public class Start_Game {
       System.out.println("\t\t\t\t\t########            ");
       System.out.println("                                               \n");
       _Second_Wait(2);
-      System.out.println(BLEU);
       System.out.println("      :::::::::       :::            :::     :::   ::: ");
       System.out.println("     :+:    :+:      :+:          :+: :+:   :+:   :+:  ");
       System.out.println("    +:+    +:+      +:+         +:+   +:+   +:+ +:+    ");
@@ -273,6 +271,7 @@ public class Start_Game {
         }
     }
     public static void start(){
+
         disperse = disperseCard(gameCartes);
         Player=disperse.PlayerCard ;
         Dealer =disperse.DealerCard ;
@@ -310,7 +309,7 @@ public class Start_Game {
                     System.out.println(RESET);
                     System.out.println("+------------------------------------------+");
                     CardDesignList(Dealer,false);
-                    _Second_Wait(3);
+                    _Second_Wait(1);
                     request_Jetton();
                     start();
                 }

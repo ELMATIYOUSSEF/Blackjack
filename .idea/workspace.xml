@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6993bc6d-c732-49c0-a39c-30fd5ee9d192" name="Changes" comment="add function Start_Game &amp;&amp; logic of blackjack">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Console/Colore.java" afterDir="false" />
+    <list default="true" id="6993bc6d-c732-49c0-a39c-30fd5ee9d192" name="Changes" comment="Fixed Some Problems in my Logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Cartes/Carte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Cartes/Carte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Console/CardDesigner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Console/CardDesigner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Console/Colore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Console/Colore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Console/forms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Console/forms.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Game/Start_Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Start_Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696012190658</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixed Some Problems in my Logic">
+      <created>1696171208498</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696171208498</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -99,20 +107,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add function Start_Game &amp;&amp; logic of blackjack" />
-    <option name="LAST_COMMIT_MESSAGE" value="add function Start_Game &amp;&amp; logic of blackjack" />
+    <MESSAGE value="Fixed Some Problems in my Logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Some Problems in my Logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Game/Start_Game.java</url>
-          <line>347</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Game/Start_Game.java</url>
-          <line>338</line>
-          <option name="timeStamp" value="19" />
+          <line>298</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

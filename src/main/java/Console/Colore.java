@@ -7,4 +7,6 @@ public class Colore {
         public static final String RED = "\u001B[31m";
         public static final String BLEU = "\u001B[34m";
 
+        public static final String Yellow = "\u001B[33m";
+
 }

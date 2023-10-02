@@ -1,17 +1,31 @@
 package Console;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static Console.Colore.*;
+
 public class forms {
 
-    public static String choixForm(int choixForm){
+public static Map<String, String> choixForm(int choixForm){
         String suitSymbol="" ;
+        String color  = "";
         switch (choixForm){
-            case 1: suitSymbol = "♣"; break;
-            case 2: suitSymbol = "♦"; break;
-            case 3: suitSymbol = "♥"; break;
-            case 4: suitSymbol = "♠"; break;
-            case 5: suitSymbol = "*"; break;
+            case 1:
+                color = BLEU; suitSymbol = "♣"; break;
+            case 2:
+                color = RED; suitSymbol = "♦"; break;
+            case 3:
+                color = RED; suitSymbol = "♥";break;
+            case 4:
+                color = BLEU; suitSymbol = "♠"; break;
+            case 5:
+                color = Yellow;suitSymbol = "*"; break;
         }
-        return suitSymbol ;
+        Map <String, String> result = new HashMap<>();
+        result.put("color", color);
+        result.put("symbol", suitSymbol);
+    return result ;
     }
     public static String choixchar(int choix){
         String suitSymbol="" ;
