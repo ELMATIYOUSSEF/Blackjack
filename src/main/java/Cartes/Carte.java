@@ -1,17 +1,15 @@
 package Cartes;
 
-import Console.CardDesigner;
 import Enums.colore;
 
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import Service.GameService.*;
 
 
 public class Carte {
     static final Random rd = new Random();
-    static CardDesigner cardDesigner = new CardDesigner();
+  //  static CardDesigner cardDesigner = new CardDesigner();
     public static ArrayList<ArrayList<Integer>> BlackList ;
 
     public static   ArrayList<ArrayList<Integer>> gameCartes ;
@@ -88,17 +86,16 @@ public class Carte {
 
     public static  ArrayList<ArrayList<Integer>> NewGame(ArrayList<ArrayList<Integer>> blackList,
                                                          ArrayList<ArrayList<Integer>> gameList,
-                                                         ArrayList<ArrayList<Integer>> playerList,
-                                                         ArrayList<ArrayList<Integer>> dealerList){
+                                                         ArrayList<ArrayList<Integer>> usedList){
         return Stream.concat(
                     Stream.concat(blackList.stream(), gameList.stream()),
-                    Stream.concat(playerList.stream(), dealerList.stream())
+                    usedList.stream()
                 ).collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public static String DesingCartes(ArrayList<ArrayList<Integer>> shuffle , boolean Hide) {
+   /* public static String DesingCartes(ArrayList<ArrayList<Integer>> shuffle , boolean Hide) {
         return  cardDesigner.CardDesignList(shuffle,Hide);
-    }
+    }*/
 
 
 
@@ -119,6 +116,26 @@ public class Carte {
 
         return RestCarte ;
     }
+    // author way
+    public static int[][] GetNextCard(int[] Carte) {
+        int character = Carte[0];
+        int Form = Carte[1];
+        int size = ((52-(13*(Form-1)))-character);
+        int[][] RestCarte = new int[size][2];
+        int j =0 ;
+        for (int form = Form; form <= colore.values().length; form++) {
+            for (int i = character + 1; i <= 13; i++) {
+                int[] myNum = { i, form };
+                RestCarte[j] = myNum;
+                j++ ;
+            }
+            character = 0;
+        }
+
+        return RestCarte;
+    }
+
+
 
     // disperse Card function
     public static DisperseCard disperseCard(ArrayList<ArrayList<Integer>> GameCarte){

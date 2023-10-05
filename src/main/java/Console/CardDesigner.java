@@ -53,7 +53,6 @@ public class CardDesigner {
         System.out.print(
                 Design
         );
-        System.out.println(RESET);
         return Design;
     }
 

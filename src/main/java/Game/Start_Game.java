@@ -12,6 +12,7 @@ import static Console.Colore.*;
 public class Start_Game {
 
     public static long wallet = 0;
+    public static ArrayList<ArrayList<Integer>> usedCard = new ArrayList<>() ;
     public static long RoundAmount=0;
     private static final  Scanner scanner = new Scanner(System.in);
 
@@ -278,28 +279,35 @@ public class Start_Game {
         Bool_NbmCarteRest  =disperse.checkNumberCarte ;
 
       while(Bool_NbmCarteRest){
-          //calcule total Score of Dealer
+          // calcule total Score of Dealer
           Map<String,Integer> map1 = CalculeTotal(Dealer);
           int CountScoreDealer = map1.get("numbreTotal");
-          //calcule total Score of Player
+          // calcule total Score of Player
           Map<String,Integer> map = CalculeTotal(Player);
           int countScorePlayer = map.get("numbreTotal");
           int numbreGreaterThan21 = map.get("numbreGreaterThan21");
-          //Design list card for Player
+          // Design list card for Player
             System.out.println(" Your carte : ");
             CardDesignList(Player,false);
           // Rest Card in Game List
             System.out.println("Rest Carte : "+gameCartes.size());
           // Score of Player
             System.out.println("Numbre Total Cartes : "+countScorePlayer);
-          //Design list card for dealer
+          // Design list card for dealer
             System.out.println(" Dealer carte : ");
             CardDesignList(Dealer,true);
 
                 if(numbreGreaterThan21 != 1){
                     if(!gameCartes.isEmpty()){
                     HitOrStand() ;
-                    }else { howIswin(countScorePlayer,CountScoreDealer);}}
+                    }else {
+                        System.out.println("Game Card Is Empty !!");
+                        _Second_Wait(2);
+                        howIswin(countScorePlayer,CountScoreDealer);
+                        _Second_Wait(1);
+                        playagain();
+                    }
+                }
                 else{
                     _Second_Wait(1);
                     YouLose();
@@ -325,36 +333,34 @@ public class Start_Game {
     public static void HitOrStand(){
         String choice ="" ;
         Scanner scanner1 = new Scanner(System.in);
-        do {
-            System.out.print("Do you want to hit or stand? (Type 'hit' or 'stand'): ");
-           choice = scanner1.nextLine().toLowerCase();
-            if (!choice.equals("hit") && !choice.equals("stand")) {
-                System.out.println(RED);
-                System.out.println("Invalid choice. Please type 'hit' or 'stand'.");
-                System.out.println(RESET);
-            }
-        }while (!choice.equals("hit") && !choice.equals("stand")) ;
+        if(gameCartes.size()>0) {
+            do {
+                System.out.print("Do you want to hit or stand? (Type 'hit' or 'stand'): ");
+                choice = scanner1.nextLine().toLowerCase();
+                if (!choice.equals("hit") && !choice.equals("stand")) {
+                    System.out.println(RED);
+                    System.out.println("Invalid choice. Please type 'hit' or 'stand'.");
+                    System.out.println(RESET);
+                }
+            } while (!choice.equals("hit") && !choice.equals("stand"));
 
             if (choice.equals("hit")) {
-                if(gameCartes.size()>=1) {
-                    Hit(gameCartes, Player);
-                }
-                else {
-                    playagain();
-                }
-
+             Hit(gameCartes, Player);
             } else {
                 Stand();
             }
+        }else {
+                playagain();
+            }
 
-    }
+        }
     public static void playagain(){
             System.out.println(BLEU);
             System.out.println("\t\t\t\t\t\t\t\t\t\t Wallet => "+ wallet  +",00 $");
             System.out.println(RESET);
             System.out.println("Play again \n 1 - Oui \n 2 - No \n");
             if(scanner.nextInt() == 1 ){
-                ArrayList<ArrayList<Integer>> arrayLists = NewGame(BlackList, gameCartes, Player, Dealer);
+                ArrayList<ArrayList<Integer>> arrayLists = NewGame(BlackList, gameCartes,usedCard);
                 getBlackandGameList(arrayLists);
                 start();
             }else {
@@ -364,31 +370,32 @@ public class Start_Game {
             }
     }
     public  static  void Hit(ArrayList<ArrayList<Integer>> cards , ArrayList<ArrayList<Integer>> Player){
-
-            Player.add(disperseTableCard(cards)) ;
+        ArrayList<Integer> list = disperseTableCard(cards) ;
+            usedCard.add(list);
+            Player.add(list) ;
 
     }
 
     public static void Stand(){
 
         Map<String,Integer> map = CalculeTotal(Player);
-        int numbrePlayer = map.get("numbreTotal");
+        int scorePlayer = map.get("numbreTotal");
         CardDesignList(Player,false);
-        System.out.println(" Numbre Total  of Your Cartes : " + numbrePlayer);
-        int numbreDealer ;
+        System.out.println(" Numbre Total  of Your Cartes : " + scorePlayer);
+        int scoreDealer ;
 
        do{
            Map<String,Integer> map2 = CalculeTotal(Dealer);
-           numbreDealer = map2.get("numbreTotal");
+           scoreDealer = map2.get("numbreTotal");
            CardDesignList(Dealer,false);
-           System.out.println(" Numbre Total  of Dealer Cartes : " + numbreDealer);
+           System.out.println(" Numbre Total  of Dealer Cartes : " + scoreDealer);
            _Second_Wait(3);
            if(gameCartes.size()>0){
                Hit(gameCartes,Dealer);
            }else break;
            System.out.println("+---------------------------- Dealer ---------------------------+");
-       } while ((numbreDealer<17 && numbreDealer<numbrePlayer )&& CheckTableCard(gameCartes));
-        howIswin(numbrePlayer,numbreDealer);
+       } while (scoreDealer<17 && scoreDealer<=scorePlayer && CheckTableCard(gameCartes));
+        howIswin(scorePlayer,scoreDealer);
         request_Jetton();
         start();
 
