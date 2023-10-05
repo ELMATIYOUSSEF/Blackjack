@@ -10,6 +10,7 @@ import static Service.GameService.CartesReadyToPiocher;
 
 public class Main {
     public static void main(String[] args) {
+        // test function nextCards
         int[] myNum = { 5, 2 };
         int[][] nextCards = GetNextCard(myNum);
         System.out.println("+---------------+");
